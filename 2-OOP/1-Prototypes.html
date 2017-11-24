@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS OOP: INHERITANCE</title>
+        <script>
+
+
+// Referring to .prototype / .__proto__
+
+const MyObjConstructor = function(name) {
+  const myPrivateVar = "Hello"; // just to show that it is hard to see this private var easily
+  this.name = name; // but you can see the name!
+  this.method = function() {
+    console.log( "I am a method");
+  };
+}
+const obj1 = new MyObjConstructor('object1');
+const obj2 = new MyObjConstructor('object2');
+console.log(obj1);
+
+// let's add to obj1:
+obj1.newProperty = "newProperty!";
+obj1.__proto__.anotherProperty = "anotherProperty!"; // note '__proto__'
+console.log(obj1.anotherProperty); // anotherProperty!
+console.log(obj1.newProperty); // newProperty!
+
+// What about obj2?
+console.log(obj2.newProperty); // undefined
+console.log(obj2.anotherProperty); // anotherProperty! <= THIS IS THE COOL PART!
+// adding anotherProperty to obj1.__proto__ will also add it to obj2 (and all others!)
+
+// Both share a prototype object since they're both instances of MyObjConstructor
+// That's how JavaScript does inheritance!
+
+// BUT WAIT: THERE'S ANOTHER __PROTO__:
+obj1.__proto__.__proto__.thirdProperty = "thirdProperty!"
+// This __PROTO__ of __PROTO__ is for ALL objects in your program!!!
+// If you add things to it, those properties or methods can be accessed/invoked globally!
+
+// NOTE: When adding to prototype in the function, refer to it as .prototype
+
+
+        </script>
+    </head>
+    <body></body>
+</html>
