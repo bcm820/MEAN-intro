@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+
+    <body style="text-align: center; margin: 20% 20%">
+        <button id="element">Element</button>
+    </body>
+
+<script>
+
+    function $Dojo(id){
+
+        this.element = document.getElementById(id);
+
+        this.click = (action) => {
+            this.element.addEventListener('click', action);
+        };
+
+        this.hover = (actionOn, actionOff) => {
+            this.element.addEventListener('mouseover', actionOn);
+            this.element.addEventListener('mouseout', actionOff);
+        };
+
+        return this; // returns itself to chain its methods
+       
+    }
+
+    $Dojo('element').click(() => { console.log("Clicked!") });
+    $Dojo('element').hover(() => { console.log("Mouseover...")},
+                           () => { console.log("Mouseout."); })
+
+</script>
+
+</html>
