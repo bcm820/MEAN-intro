@@ -22,5 +22,15 @@ function makeAlfredo() { console.log("Making alfredo sauce..."); return "alfredo
 // we want to pass the function itself, not its return value!
 console.log(makePasta("penne", makePesto));
 console.log(makePasta("farfalle", makeAlfredo));
-
 // Callbacks help with delegating tasks, and can help modularize our code for reuse and DRY
+
+
+// Callbacks & Event Handling //
+
+// We will typically use callbacks in response to an event trigger vs. setTimeout
+// Our HTML might have: <button id="myButton">This is a Button</button>
+var button = document.getElementById("myButton"); // Link our variable "button" to a DOM element
+button.addEventListener("click", callback); // add a DOM eventListener to that variable.
+function callback() {
+  alert("You clicked the button");
+}
