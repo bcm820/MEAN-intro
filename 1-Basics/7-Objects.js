@@ -11,7 +11,7 @@ for(let student of students) {
     console.log(
         `Name: ${student.name}, ` +
         `Cohort: ${student.cohort}`
-    )
+    );
 }
 
 const users = {
@@ -30,12 +30,12 @@ const users = {
 for(let table in users) {
     console.log(table.toUpperCase());
     let i = 1;
-    for(user of users[table]) {
+    for(let user of users[table]) {
         console.log(
             `${i} - ` +
-            `${user['last_name'].toUpperCase()}, ` +
-            `${user['first_name'].toUpperCase()} - ` +
-            `${user['first_name'].length + user['last_name'].length}`
+            `${user.last_name.toUpperCase()}, ` +
+            `${user.first_name.toUpperCase()} - ` +
+            `${user.first_name.length + user.last_name.length}`
         );
         i++;
     }
@@ -51,4 +51,4 @@ for (const key in users) { // employees, managers
         const length = fname.length + lname.length;
         console.log(`${num} - ${lname}, ${fname} - ${length}`);
     }
-};
+}
